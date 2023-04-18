@@ -2,8 +2,9 @@ package com.example.dto;
 
 public class PostDTO{
     private Long id;
-    private String content;
+    private String picture_url;
     private String title;
+    private String description;
     private String username;
 
     public Long getId() {
@@ -14,12 +15,20 @@ public class PostDTO{
         this.id = id;
     }
 
-    public String getContent() {
-        return content;
+    public String getPicture_url() {
+        return picture_url;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setPicture_url(String picture_url) {
+        this.picture_url = picture_url;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getTitle() {

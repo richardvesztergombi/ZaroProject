@@ -12,31 +12,14 @@ import java.util.List;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(
-            name = "username",
-            nullable = false,
-            columnDefinition = "TEXT"
-    )
+
+    @Column(name = "username", nullable = false, columnDefinition = "TEXT" )
     private String userName;
-    @Column(
-            name = "lastName",
-            nullable = false,
-            columnDefinition = "TEXT"
-    )
-    private String lastName;
-    @Column(
-            name = "firstName",
-            nullable = false,
-            columnDefinition = "TEXT"
-    )
-    private String firstName;
-    @Column(
-            name = "password",
-            nullable = false,
-            columnDefinition = "TEXT"
-    )
-    private String password;
+
+    @Column(name = "encrypted_password", nullable = false, columnDefinition = "TEXT")
+    private String encryptedPassword;
     @Column(
             name = "email",
             nullable = false,
@@ -52,9 +35,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", password='" + password + '\'' +
+                ", password='" + encryptedPassword + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
