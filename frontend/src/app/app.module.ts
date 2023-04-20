@@ -19,7 +19,8 @@ const routes: Routes = [
   {path: "register", component: RegisterComponent},
   {path: "main", component: MainComponent},
   {path: "new-blog", component: NewBlogComponent},
-  {path: "users-blog-list", component: UsersBlogListComponent}
+  {path: "users-blog-list", component: UsersBlogListComponent},
+  {path: "home", component: HomeComponent}
 ];
 
 

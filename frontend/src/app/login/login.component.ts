@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit{
 
   login() {
     let userLoginModel: UserLoginRequestModel = this.loginForm.value;
-    this.userService.loginEmployee(userLoginModel)
+    this.userService.loginUser(userLoginModel)
       .subscribe({
         next: (response) => {
           console.log('Login response: '+ JSON.stringify(response))
