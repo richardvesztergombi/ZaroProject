@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, isFormControl, Validators} from "@a
 import {Router} from "@angular/router";
 import {AddNewBlogModel} from "../models/AddNewBlogModel";
 import {PostService} from "../services/post.service";
+import {PostResponseModel} from "../models/PostResponseModel";
 
 @Component({
   selector: 'app-new-blog',
@@ -23,25 +24,25 @@ export class NewBlogComponent{
   }
 
   ngOnInit(): void{
-
   }
 
   newBlog(){
     let addNewBlogModel: AddNewBlogModel = this.newBlogForm.value;
+    let postResponse: PostResponseModel;
     this.postService.createANewBlog(addNewBlogModel)
       .subscribe({
         next: (response) => {
           console.log('Blog response: '+ JSON.stringify(response))
+          postResponse = response;
+          console.log("Az a már FE-es érték:"+ JSON.stringify(postResponse));
         },
         error: (error) => {
           console.log(error)
         },
         complete: () => {
           console.log('completed')
-
           this.router.navigate(['/main']);
         }
-
       })
   }
 }

@@ -51,6 +51,7 @@ public class WebSecurity {
                 .authorizeRequests()
                 .requestMatchers(HttpMethod.POST,"/api/registration").permitAll()
                 .requestMatchers(HttpMethod.POST, "/user").permitAll()
+                .requestMatchers(HttpMethod.POST, "/post").permitAll()
                 .anyRequest().authenticated().and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().authenticationManager(authenticationManager);

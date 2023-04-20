@@ -1,11 +1,11 @@
 package com.example.controllers;
 
+import com.example.dto.PostDTO;
+import com.example.dto.PostResponseDTO;
 import com.example.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import com.example.dto.PostDTO;
 
 
 @RestController
@@ -14,14 +14,14 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @PostMapping
-    public ResponseEntity createPost(@RequestBody PostDTO postDto) {
-        postService.createPost(postDto);
-        return new ResponseEntity(HttpStatus.OK);
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public PostResponseDTO createPost(@RequestBody PostDTO postDto) {
+        return postService.createPost(postDto);
     }
 
     @GetMapping("/all")
-    public String  showAllPosts() {
+    public String showAllPosts() {
         return postService.showAllPosts();
     }
 
